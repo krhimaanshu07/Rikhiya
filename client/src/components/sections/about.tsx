@@ -34,8 +34,8 @@ export default function About() {
                 transition={{ duration: 0.3 }}
               >
                 <img
-                  src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600"
-                  alt="Professional workspace environment"
+                  src="https://drive.google.com/uc?export=view&id=10vXFtYHSquCl1moo-balcExPBn9dLg1p"
+                  alt="Rikhia Chakraborty - Professional Profile"
                   className="w-full h-auto rounded-2xl"
                 />
               </motion.div>

@@ -1,8 +1,10 @@
 import { motion } from "framer-motion";
+import { useState } from "react";
 import { Calendar, Clock, ArrowRight } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { fadeInUp, staggerContainer, staggerItem } from "../../lib/animations";
+import BlogModal from "../modals/blog-modal";
 
 const blogPosts = [
   {
@@ -38,6 +40,18 @@ const blogPosts = [
 ];
 
 export default function Blog() {
+  const [selectedPost, setSelectedPost] = useState<typeof blogPosts[0] | null>(null);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const handlePostClick = (post: typeof blogPosts[0]) => {
+    setSelectedPost(post);
+    setIsModalOpen(true);
+  };
+
+  const handleCloseModal = () => {
+    setIsModalOpen(false);
+    setSelectedPost(null);
+  };
   return (
     <section id="blog" className="py-20 bg-muted/30">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -69,6 +83,7 @@ export default function Blog() {
               className="glass-card rounded-2xl overflow-hidden hover:scale-105 transition-all duration-300 group cursor-pointer"
               variants={staggerItem}
               whileHover={{ y: -5 }}
+              onClick={() => handlePostClick(post)}
             >
               {/* Featured Image */}
               <div className="relative overflow-hidden">
@@ -112,13 +127,17 @@ export default function Blog() {
                 </p>
 
                 {/* Read More Link */}
-                <motion.div
+                <motion.button
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    handlePostClick(post);
+                  }}
                   className="flex items-center text-primary hover:text-primary/80 font-medium text-sm group/link"
                   whileHover={{ x: 5 }}
                 >
                   <span className="mr-2">Read More</span>
                   <ArrowRight className="h-4 w-4 transition-transform group-hover/link:translate-x-1" />
-                </motion.div>
+                </motion.button>
               </div>
 
               {/* Hover Effect Overlay */}
@@ -179,6 +198,13 @@ export default function Blog() {
           </div>
         </motion.div>
       </div>
+
+      {/* Blog Modal */}
+      <BlogModal
+        post={selectedPost}
+        isOpen={isModalOpen}
+        onClose={handleCloseModal}
+      />
     </section>
   );
 }

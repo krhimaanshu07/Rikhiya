@@ -4,6 +4,7 @@ import { ExternalLink, Calendar, Plane, GraduationCap, Database, Users, Award } 
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { fadeInUp, staggerContainer, staggerItem } from "../../lib/animations";
+import ProjectModal from "../modals/project-modal";
 
 const projectFilters = [
   { id: "all", label: "All Projects" },
@@ -77,10 +78,22 @@ const projects = [
 
 export default function Projects() {
   const [activeFilter, setActiveFilter] = useState("all");
+  const [selectedProject, setSelectedProject] = useState<typeof projects[0] | null>(null);
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   const filteredProjects = activeFilter === "all" 
     ? projects 
     : projects.filter(project => project.category === activeFilter);
+
+  const handleProjectClick = (project: typeof projects[0]) => {
+    setSelectedProject(project);
+    setIsModalOpen(true);
+  };
+
+  const handleCloseModal = () => {
+    setIsModalOpen(false);
+    setSelectedProject(null);
+  };
 
   return (
     <section id="projects" className="py-20 bg-background">
@@ -186,13 +199,14 @@ export default function Projects() {
 
                 {/* Project Link */}
                 <div className="flex items-center justify-between">
-                  <motion.div
+                  <motion.button
+                    onClick={() => handleProjectClick(project)}
                     className="flex items-center text-sm text-primary hover:text-primary/80 cursor-pointer"
                     whileHover={{ x: 5 }}
                   >
                     <span className="mr-2">View Details</span>
                     <ExternalLink className="h-4 w-4" />
-                  </motion.div>
+                  </motion.button>
                 </div>
               </div>
             </motion.div>
@@ -211,6 +225,13 @@ export default function Projects() {
           </motion.div>
         )}
       </div>
+
+      {/* Project Modal */}
+      <ProjectModal
+        project={selectedProject}
+        isOpen={isModalOpen}
+        onClose={handleCloseModal}
+      />
     </section>
   );
 }

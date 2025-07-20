@@ -20,15 +20,9 @@ export default function Navbar() {
   const { scrollY } = useScroll();
   const activeSection = useActiveSection(['home', 'about', 'skills', 'projects', 'blog', 'contact']);
 
-  const handleDownloadResume = async () => {
-    try {
-      const response = await fetch('/api/resume');
-      const data = await response.json();
-      // In a real application, this would trigger the actual download
-      alert(data.message);
-    } catch (error) {
-      console.error('Failed to download resume:', error);
-    }
+  const handleDownloadResume = () => {
+    // Direct link to trigger download
+    window.open('/api/resume', '_blank');
   };
 
   const scrollToSection = (sectionId: string) => {

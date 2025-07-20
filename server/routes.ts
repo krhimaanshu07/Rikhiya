@@ -27,11 +27,9 @@ export async function registerRoutes(app: Express): Promise<Server> {
   // Resume download endpoint
   app.get("/api/resume", (req, res) => {
     try {
-      // In a real application, you would serve the actual resume file
-      res.json({ 
-        message: "Resume download initiated",
-        downloadUrl: "/assets/rikhia-chakraborty-resume.pdf"
-      });
+      // Redirect to Google Drive direct download link
+      const driveDownloadUrl = "https://drive.google.com/uc?export=download&id=1uBZR-KalYksjivZSsXDW1kyvJgVBj2Zn";
+      res.redirect(driveDownloadUrl);
     } catch (error) {
       res.status(500).json({ message: "Failed to download resume" });
     }

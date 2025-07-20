@@ -4,14 +4,9 @@ import { Button } from "@/components/ui/button";
 import { fadeInUp, fadeIn, staggerContainer, staggerItem } from "../../lib/animations";
 
 export default function Hero() {
-  const handleDownloadResume = async () => {
-    try {
-      const response = await fetch('/api/resume');
-      const data = await response.json();
-      alert(data.message);
-    } catch (error) {
-      console.error('Failed to download resume:', error);
-    }
+  const handleDownloadResume = () => {
+    // Direct link to trigger download
+    window.open('/api/resume', '_blank');
   };
 
   const scrollToContact = () => {
@@ -84,7 +79,7 @@ export default function Hero() {
           >
             <div className="w-32 h-32 mx-auto rounded-full bg-gradient-to-r from-primary to-secondary p-1">
               <img
-                src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=400"
+                src="https://drive.google.com/uc?export=view&id=10vXFtYHSquCl1moo-balcExPBn9dLg1p"
                 alt="Rikhia Chakraborty - Professional Profile"
                 className="w-full h-full rounded-full object-cover border-4 border-white/20 shadow-2xl"
               />
