@@ -79,7 +79,7 @@ export default function Hero() {
           >
             <div className="w-32 h-32 mx-auto rounded-full bg-gradient-to-r from-primary to-secondary p-1">
               <img
-                src="https://drive.google.com/uc?export=view&id=10vXFtYHSquCl1moo-balcExPBn9dLg1p"
+                src="/attached_assets/profile_pic.jpeg"
                 alt="Rikhia Chakraborty - Professional Profile"
                 className="w-full h-full rounded-full object-cover border-4 border-white/20 shadow-2xl"
               />

@@ -34,7 +34,7 @@ export default function About() {
                 transition={{ duration: 0.3 }}
               >
                 <img
-                  src="https://drive.google.com/uc?export=view&id=10vXFtYHSquCl1moo-balcExPBn9dLg1p"
+                  src="/attached_assets/profile_pic.jpeg"
                   alt="Rikhia Chakraborty - Professional Profile"
                   className="w-full h-auto rounded-2xl"
                 />

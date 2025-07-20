@@ -310,7 +310,7 @@ export default function BlogModal({ post, isOpen, onClose }: BlogModalProps) {
           onClick={onClose}
         >
           <motion.div
-            className="relative w-full max-w-4xl max-h-[90vh] overflow-y-auto glass-card rounded-2xl"
+            className="relative w-full max-w-4xl max-h-[90vh] overflow-y-auto glass-card modal-content rounded-2xl"
             initial={{ scale: 0.9, opacity: 0 }}
             animate={{ scale: 1, opacity: 1 }}
             exit={{ scale: 0.9, opacity: 0 }}
@@ -362,7 +362,7 @@ export default function BlogModal({ post, isOpen, onClose }: BlogModalProps) {
               <div className="prose prose-lg prose-slate dark:prose-invert max-w-none mb-8">
                 <div 
                   dangerouslySetInnerHTML={{ __html: content?.content }} 
-                  className="leading-relaxed"
+                  className="leading-relaxed text-foreground/90"
                 />
               </div>
 
@@ -376,7 +376,7 @@ export default function BlogModal({ post, isOpen, onClose }: BlogModalProps) {
                   {content?.keyTakeaways.map((takeaway: string, index: number) => (
                     <li key={index} className="flex items-start gap-3">
                       <div className="w-2 h-2 bg-primary rounded-full mt-2 flex-shrink-0" />
-                      <span className="text-muted-foreground">{takeaway}</span>
+                      <span className="text-foreground/80">{takeaway}</span>
                     </li>
                   ))}
                 </ul>
@@ -385,7 +385,7 @@ export default function BlogModal({ post, isOpen, onClose }: BlogModalProps) {
               {/* Author Bio */}
               <div className="glass-card p-6 rounded-xl mb-8">
                 <h3 className="text-lg font-semibold mb-3">About the Author</h3>
-                <p className="text-muted-foreground">
+                <p className="text-foreground/80">
                   Rikhia Chakraborty is an experienced Executive Assistant and Administrator with over 3 years 
                   of progressive experience in organizational management, stakeholder coordination, and operational 
                   excellence. Currently pursuing MBA in International Business at Chandigarh University, she 

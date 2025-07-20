@@ -271,7 +271,7 @@ export default function ProjectModal({ project, isOpen, onClose }: ProjectModalP
           onClick={onClose}
         >
           <motion.div
-            className="relative w-full max-w-4xl max-h-[90vh] overflow-y-auto glass-card rounded-2xl"
+            className="relative w-full max-w-4xl max-h-[90vh] overflow-y-auto glass-card modal-content rounded-2xl"
             initial={{ scale: 0.9, opacity: 0 }}
             animate={{ scale: 1, opacity: 1 }}
             exit={{ scale: 0.9, opacity: 0 }}
@@ -321,7 +321,7 @@ export default function ProjectModal({ project, isOpen, onClose }: ProjectModalP
                     ))}
                   </div>
                 </div>
-                <p className="text-muted-foreground leading-relaxed mb-6">
+                <p className="text-foreground/80 leading-relaxed mb-6">
                   {project.description}
                 </p>
               </div>
@@ -336,7 +336,7 @@ export default function ProjectModal({ project, isOpen, onClose }: ProjectModalP
                   {details?.objectives.map((objective: string, index: number) => (
                     <li key={index} className="flex items-start gap-3">
                       <CheckCircle2 className="h-5 w-5 text-green-500 mt-0.5 flex-shrink-0" />
-                      <span className="text-muted-foreground">{objective}</span>
+                      <span className="text-foreground/80">{objective}</span>
                     </li>
                   ))}
                 </ul>
@@ -349,7 +349,7 @@ export default function ProjectModal({ project, isOpen, onClose }: ProjectModalP
                   {details?.challenges.map((challenge: string, index: number) => (
                     <li key={index} className="flex items-start gap-3">
                       <div className="w-2 h-2 bg-yellow-500 rounded-full mt-2 flex-shrink-0" />
-                      <span className="text-muted-foreground">{challenge}</span>
+                      <span className="text-foreground/80">{challenge}</span>
                     </li>
                   ))}
                 </ul>
@@ -362,7 +362,7 @@ export default function ProjectModal({ project, isOpen, onClose }: ProjectModalP
                   {details?.solutions.map((solution: string, index: number) => (
                     <li key={index} className="flex items-start gap-3">
                       <div className="w-2 h-2 bg-blue-500 rounded-full mt-2 flex-shrink-0" />
-                      <span className="text-muted-foreground">{solution}</span>
+                      <span className="text-foreground/80">{solution}</span>
                     </li>
                   ))}
                 </ul>
@@ -375,7 +375,7 @@ export default function ProjectModal({ project, isOpen, onClose }: ProjectModalP
                   {details?.outcomes.map((outcome: string, index: number) => (
                     <li key={index} className="flex items-start gap-3">
                       <CheckCircle2 className="h-5 w-5 text-green-500 mt-0.5 flex-shrink-0" />
-                      <span className="text-muted-foreground">{outcome}</span>
+                      <span className="text-foreground/80">{outcome}</span>
                     </li>
                   ))}
                 </ul>
@@ -386,7 +386,7 @@ export default function ProjectModal({ project, isOpen, onClose }: ProjectModalP
                 <h3 className="text-xl font-bold mb-4">Detailed Project Analysis</h3>
                 <div className="prose prose-slate dark:prose-invert max-w-none">
                   {details?.fullDescription.split('\n\n').map((paragraph: string, index: number) => (
-                    <p key={index} className="text-muted-foreground leading-relaxed mb-4">
+                    <p key={index} className="text-foreground/80 leading-relaxed mb-4">
                       {paragraph}
                     </p>
                   ))}

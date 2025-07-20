@@ -82,6 +82,17 @@
     box-shadow: 0 8px 32px hsla(262, 85%, 67%, 0.1);
   }
 
+  /* Enhanced modal glass card for better text visibility */
+  .glass-card.modal-content {
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(30px) saturate(200%);
+    -webkit-backdrop-filter: blur(30px) saturate(200%);
+  }
+
+  .dark .glass-card.modal-content {
+    background: rgba(15, 15, 15, 0.95);
+  }
+
   /* Neumorphism effect */
   .neomorphism {
     background: hsl(220, 14.3%, 95.9%);
